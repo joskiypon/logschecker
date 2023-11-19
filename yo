@@ -1,0 +1,12 @@
+from config import f_api 
+from telethon import TelegramClient, events
+
+async def parse_messages(chat_ids):
+    async with TelegramClient('session_name', api_id, api_hash) as client:
+        for chat_id in chat_ids:
+            async for message in client.iter_messages(chat_id):
+                print(message.text)
+
+if __name__ == "__main__":
+    chat_ids = [777000]  # замените на реальные ID чатов
+    parse_messages(chat_ids)
